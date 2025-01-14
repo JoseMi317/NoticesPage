@@ -37,7 +37,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ![imagen](https://github.com/user-attachments/assets/70ce72e7-fcb0-41e5-af71-cac92efafe18)
 
 ===========Register Page==============
-![imagen](https://github.com/user-attachments/assets/826fd322-a85c-4a0d-adb6-a3f14dc1a724)
+![imagen](https://github.com/user-attachments/assets/4b95e2a7-7697-4e58-b727-9084c09decd9)
 
 ===========Notices Page===============
 **Pendiente por que me acabe las peticiones JAJAJA**
