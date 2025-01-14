@@ -1,0 +1,80 @@
+'use client';
+
+import React, { useState, useEffect } from "react";
+import { fetchNews } from "../services/ApiService";
+
+interface ApiData {
+  title: string;
+  description: string;
+  author: string;
+  url: string;
+  urlToImage: string;
+}
+
+interface NoticeInfoComponentProps {
+  selectedCategory: string;
+  selectedLanguaje: string;
+}
+
+const NoticeInfoComponent: React.FC<NoticeInfoComponentProps> = ({ selectedCategory }) => {
+  const [articles, setArticles] = useState<ApiData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        const data = await fetchNews(selectedCategory);
+        setArticles(data);
+      } catch (err) {
+        setError("Error al obtener las noticias");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getArticles();
+  }, [selectedCategory]); 
+
+  if (loading) {
+    return <p>Cargando...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (articles.length === 0) {
+    return <p>No hay noticias disponibles para esta categoría y lenguaje.</p>;
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      {articles.map((article, index) => (
+        <div key={index} className="card bg-base-100 w-full shadow-xl">
+          <figure>
+            <img
+              src={article.urlToImage || "public/NewNotice.png"}
+              alt={article.title}
+              className="w-full h-48 object-cover"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{article.title}</h2>
+            <p>{article.description}</p>
+            <div className="card-actions justify-between h-10">
+              <div className="badge badge-accent h-full w-auto">
+              Author: {article.author ? article.author : "Autor desconocido"}
+              </div>
+              <a href={article.url} className="badge badge-info btn btn-md">
+                Ver más
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default NoticeInfoComponent;
