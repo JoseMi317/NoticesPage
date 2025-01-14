@@ -13,7 +13,7 @@ export default function NoticesPage() {
 
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen bg-gray-200'>
       {/* Header */}
       <div className="navbar bg-base-100 shadow-lg">
         <div className="flex-1">

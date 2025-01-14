@@ -34,18 +34,22 @@ const NoticeInfoComponent: React.FC<NoticeInfoComponentProps> = ({ selectedCateg
     };
 
     getArticles();
-  }, [selectedCategory]); 
+  }, [selectedCategory]);
+
 
   if (loading) {
-    return <p>Cargando...</p>;
+    return <p className="text-xl font-bold">Cargando... <span className="loading loading-bars loading-lg"></span></p>;
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <div role="alert" className="alert alert-error w-96">
+              <span>{error}</span>
+            </div>;
   }
 
+
   if (articles.length === 0) {
-    return <p>No hay noticias disponibles para esta categoría y lenguaje.</p>;
+    return <p className="text-3xl font-sans font-bold">No hay noticias disponibles para esta categoría.</p>;
   }
 
   return (
@@ -54,17 +58,17 @@ const NoticeInfoComponent: React.FC<NoticeInfoComponentProps> = ({ selectedCateg
         <div key={index} className="card bg-base-100 w-full shadow-xl">
           <figure>
             <img
-              src={article.urlToImage || "public/NewNotice.png"}
-              alt={article.title}
+              src={article.urlToImage || "/NewNotice.png"}
+              alt={article.title || "Imagen no disponible"}
               className="w-full h-48 object-cover"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{article.title}</h2>
-            <p>{article.description}</p>
+            <h2 className="card-title">{article.title || "Título no disponible"}</h2>
+            <p>{article.description || "Descripción no disponible"}</p>
             <div className="card-actions justify-between h-10">
-              <div className="badge badge-accent h-full w-auto">
-              Author: {article.author ? article.author : "Autor desconocido"}
+              <div className="badge badge-accent h-full w-auto max-w-96">
+                Author: {article.author || "Autor desconocido"}
               </div>
               <a href={article.url} className="badge badge-info btn btn-md">
                 Ver más
