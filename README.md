@@ -30,3 +30,14 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## ScreenShoots To Pages
 
+==========The Landing Page============
+![imagen](https://github.com/user-attachments/assets/803b84de-3050-4faf-b3f7-f29cda0c5270)
+
+=============Login Page===============
+![imagen](https://github.com/user-attachments/assets/70ce72e7-fcb0-41e5-af71-cac92efafe18)
+
+===========Register Page==============
+![imagen](https://github.com/user-attachments/assets/826fd322-a85c-4a0d-adb6-a3f14dc1a724)
+
+===========Notices Page===============
+**Pendiente por que me acabe las peticiones JAJAJA**
