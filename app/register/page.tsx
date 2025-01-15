@@ -1,9 +1,11 @@
 'use client';
 
 import router from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function RegisterPage() {
+  const router = useRouter();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -13,41 +15,40 @@ export default function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setErrorMessage("");
 
     try {
-        const response = await fetch("http://localhost:3000/api/ApiUsers", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              action: "create",
-              firstName,
-              lastName,
-              username,
-              email,
-              password,
-            }),
-          });
-          
-          const text = await response.text();
-          console.log("Respuesta cruda del servidor:", text);
-          
-          const data = JSON.parse(text);
-          console.log(data)
-
-
+      const response = await fetch("http://localhost:3500/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          firstName,
+          lastName,
+          role: 2,
+        }),
+      });
+    
+      // Intenta convertir la respuesta a JSON directamente
+      const data = await response.json();
+      console.log("Respuesta procesada del servidor:", data);
+    
       if (response.ok) {
-        alert(data.message);
-        router.push("/login");
+        alert(data.message); // Mensaje del servidor en caso de éxito
+        router.push("/Login"); // Redirecciona al login
       } else {
         setErrorMessage(data.message || "Hubo un error al crear la cuenta");
       }
     } catch (error) {
+      console.error("Error en la conexión o durante la solicitud:", error);
       setErrorMessage("Error al conectar con el servidor.");
     } finally {
       setLoading(false);

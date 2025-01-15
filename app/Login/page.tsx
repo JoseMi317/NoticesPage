@@ -16,8 +16,8 @@ export default function Login() {
     setErrorMessage("");
 
     try {
-        const response = await fetch("http://localhost:3003/api/ApiUsers.txs", {
-            method: "POST",
+      const response = await fetch("http://localhost:3500/api/users", {
+        method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
