@@ -6,9 +6,11 @@ First, run the development server:
 
 ```bash
 ---------------------------------------------
-First install all dependences
+->First install all dependences
 nmp install
 npm i axios
+->Dependences for Data Base
+npm install mysql2
 ----------------------------------------------
 After That please install the daysiui for tailwind
 npm i -D daisyui@latest
@@ -31,13 +33,9 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## ScreenShoots To Pages
 
 ==========The Landing Page============
-![imagen](https://github.com/user-attachments/assets/803b84de-3050-4faf-b3f7-f29cda0c5270)
 
 =============Login Page===============
-![imagen](https://github.com/user-attachments/assets/5a81a6b0-8d00-4da0-a6f7-e02a13992b47)
 
 ===========Register Page==============
-![imagen](https://github.com/user-attachments/assets/4b95e2a7-7697-4e58-b727-9084c09decd9)
 
 ===========Notices Page===============
-**Pendiente por que me acabe las peticiones JAJAJA**
