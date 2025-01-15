@@ -1,72 +1,154 @@
-import React from "react"
-import Image from "next/image";
+'use client';
+
+import router from "next/router";
+import React, { useState } from "react";
 
 export default function RegisterPage() {
-    return (
-        <div className="min-h-screen flex flex-col items-center bg-gray-100">
-        <div className="hero min-h-screen w-screen" 
-            style={{ backgroundImage: 'url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)'}}>
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold text-pink-500">Create your account!</h1>
-                        <p className=" text-pink-500 text-2xl">
-                                Please fill the form to create your account.
-                        </p>
-                    </div>
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex-col col-span-1">
-                        <form className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4">
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage("");
+
+    try {
+        const response = await fetch("http://localhost:3000/api/ApiUsers", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              action: "create",
+              firstName,
+              lastName,
+              username,
+              email,
+              password,
+            }),
+          });
+          
+          const text = await response.text();
+          console.log("Respuesta cruda del servidor:", text);
+          
+          const data = JSON.parse(text);
+          console.log(data)
+
+
+      if (response.ok) {
+        alert(data.message);
+        router.push("/login");
+      } else {
+        setErrorMessage(data.message || "Hubo un error al crear la cuenta");
+      }
+    } catch (error) {
+      setErrorMessage("Error al conectar con el servidor.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col items-center bg-gray-100">
+      <div className="hero min-h-screen w-screen" style={{ backgroundImage: 'url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)' }}>
+        <div className="hero-content flex-col lg:flex-row-reverse bg-neutral rounded-lg w-full max-w-[900px] h-auto lg:h-[580px]">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold text-pink-500">Create your account!</h1>
+            <p className=" text-pink-500 text-2xl">
+              Please fill the form to create your account.
+            </p>
+          </div>
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <form className="card-body" onSubmit={handleSubmit}>
+            <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4 bg-base-100 w-full max-w-sm shrink-0 flex-col col-span-1">
                             {/*FirstName Box*/}
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">First Name</span>
+                                  <span className="label-text">First Name</span>
                                 </label>
-                                <input type="text" placeholder="First Name" className="input input-bordered" required />
+                                <input 
+                                    type="text" 
+                                    placeholder="First Name"
+                                    className="input input-bordered" 
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)} 
+                                    required 
+                                    />
                             </div>
-
-                            {/*LastName Box*/}
-                            <div className="form-control">
+                             {/*LastName Box*/}
+                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Last Name</span>
+                                  <span className="label-text">Last Name</span>
                                 </label>
-                                <input type="text" placeholder="Last Name" className="input input-bordered" required />
+                                <input 
+                                    type="text" 
+                                    placeholder="Last Name"
+                                    className="input input-bordered" 
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)} 
+                                    required 
+                                    />
                             </div>
-
-                            {/*User Box*/}
-                            <div className="form-control">
+                             {/*Username Box*/}
+                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">User</span>
+                                  <span className="label-text">UserName</span>
                                 </label>
-                                <input type="user" placeholder="user" className="input input-bordered" required />
+                                <input 
+                                    type="text" 
+                                    placeholder="UserName"
+                                    className="input input-bordered" 
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)} 
+                                    required 
+                                    />
                             </div>
-
-                            {/*Email Box*/}
-                            <div className="form-control">
+                             {/*Email Box*/}
+                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                  <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input 
+                                    type="email" 
+                                    placeholder="Email"
+                                    className="input input-bordered" 
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    required 
+                                    />
                             </div>
-
-                            {/*Password Box*/}
-                            <div className="form-control">
+                             {/*Password Box*/}
+                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                  <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input 
+                                    type="password" 
+                                    placeholder="Password"
+                                    className="input input-bordered" 
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)} 
+                                    required 
+                                    />
                             </div>
-
-                            {/*Button Box*/}
-                            <div className="form-control mt-6 sm:col-span-2">
-                                <a href="/Login" className="btn btn-secondary">Accept</a>
-                            </div>
-
-                        </form>
                     </div>
+              {errorMessage && <div className="text-red-500 mt-2">{errorMessage}</div>}
 
-                    </div>
-                </div>
-            </div>
-    );
+              <div className="form-control mt-6">
+                <button type="submit" className="btn btn-secondary" disabled={loading}>
+                  {loading ? "Cargando..." : "Crear Cuenta"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-
