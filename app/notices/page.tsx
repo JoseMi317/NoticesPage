@@ -63,7 +63,7 @@ export default function NoticesPage() {
           </a>
         </div>
         <div className="flex-none gap-2">
-          <span className=''>Bienvenido {userName}</span>
+          <span className=''>Welcome {userName}</span>
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -92,7 +92,7 @@ export default function NoticesPage() {
                     onClick={handleAdminRedirect}
                     className="justify-between flex items-center gap-2 btn btn-outline btn-primary"
                   >
-                    Ir al Panel de Administración
+                    Go to the AdminPage
                   </button>
                 </li>
               )}

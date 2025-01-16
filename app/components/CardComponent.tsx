@@ -49,7 +49,7 @@ const NoticeInfoComponent: React.FC<NoticeInfoComponentProps> = ({ selectedCateg
 
 
   if (articles.length === 0) {
-    return <p className="text-3xl font-sans font-bold p-6 text-black">No hay noticias disponibles para esta categoría.</p>;
+    return <p className="text-3xl font-sans font-bold p-6 text-black">There is no news available for this category.</p>;
   }
 
   return (

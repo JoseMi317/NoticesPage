@@ -32,7 +32,7 @@ export default function RegisterPage() {
           password,
           firstName,
           lastName,
-          role: 1,
+          role: 2,
         }),
       });
     
