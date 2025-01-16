@@ -49,7 +49,7 @@ const NoticeInfoComponent: React.FC<NoticeInfoComponentProps> = ({ selectedCateg
 
 
   if (articles.length === 0) {
-    return <p className="text-3xl font-sans font-bold">No hay noticias disponibles para esta categoría.</p>;
+    return <p className="text-3xl font-sans font-bold p-6 text-black">No hay noticias disponibles para esta categoría.</p>;
   }
 
   return (
@@ -68,7 +68,7 @@ const NoticeInfoComponent: React.FC<NoticeInfoComponentProps> = ({ selectedCateg
             <p>{article.description || "Descripción no disponible"}</p>
             <div className="card-actions justify-between h-10">
               <div className="badge badge-accent h-full w-auto max-w-96">
-                Author: {article.author || "Autor desconocido"}
+                Author: {article.author || ""}
               </div>
               <a href={article.url} className="badge badge-info btn btn-md">
                 Ver más

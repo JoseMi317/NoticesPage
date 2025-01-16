@@ -1,6 +1,5 @@
 'use client';
 
-import router from "next/router";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -22,7 +21,7 @@ export default function RegisterPage() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:3500/api/users", {
+      const response = await fetch("http://localhost:3500/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,17 +32,16 @@ export default function RegisterPage() {
           password,
           firstName,
           lastName,
-          role: 2,
+          role: 1,
         }),
       });
     
-      // Intenta convertir la respuesta a JSON directamente
       const data = await response.json();
       console.log("Respuesta procesada del servidor:", data);
     
       if (response.ok) {
-        alert(data.message); // Mensaje del servidor en caso de éxito
-        router.push("/Login"); // Redirecciona al login
+        alert(data.message);
+        router.push("/Login");
       } else {
         setErrorMessage(data.message || "Hubo un error al crear la cuenta");
       }

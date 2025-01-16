@@ -1,10 +1,11 @@
 'use client';
 
-import router from "next/router";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
-
+  const router = useRouter();
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,7 +17,7 @@ export default function Login() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:3500/api/users", {
+      const response = await fetch("http://localhost:3500/api/auth/login", {
         method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -36,6 +37,7 @@ export default function Login() {
 
       if (response.ok) {
         alert(data.message);
+        localStorage.setItem("token", data.token);
         router.push("/notices");
       } else {
         setErrorMessage(data.message || "Hubo un error al intentar iniciar sesión - Intenta de Nuevo");
@@ -47,6 +49,8 @@ export default function Login() {
       setLoading(false);
     }
   };
+
+  
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100">
