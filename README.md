@@ -18,7 +18,7 @@ First, run the development server:
 ----------------------------------------------
 ```
 Now you need the backend for that, you need to download this repository.
-[GitHu](https://github.com/JoseMi317/Backend-for-news-page)
+[GitHub](https://github.com/JoseMi317/Backend-for-news-page)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
