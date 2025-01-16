@@ -9,8 +9,6 @@ First, run the development server:
 >First install all dependences
     nmp install
     npm i axios
->Dependences for Data Base
-    npm install mysql2
 ----------------------------------------------
 >After That please install the daisyui for tailwind
     npm i -D daisyui@latest
@@ -37,14 +35,19 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## ScreenShoots To Pages
 
-==========The Landing Page============
+**==========The Landing Page============**
 ![imagen](https://github.com/user-attachments/assets/e2480171-d8d3-4dd9-b91c-8b0196d8b156)
 
-=============Login Page===============
+**=============Login Page===============**
 ![imagen](https://github.com/user-attachments/assets/7e55b30e-794a-4a2f-b489-37ccfde008db)
 
-===========Register Page==============
-![imagen](https://github.com/user-attachments/assets/af05a907-a451-4f84-bd12-9c02df0e0f0b)
+**===========Register Page==============**
+![imagen](https://github.com/user-attachments/assets/b46a0812-5d43-4cf0-a59a-2d054279f421)
 
-===========Notices Page===============
-![imagen](https://github.com/user-attachments/assets/b5e5c4cb-cf4b-4998-b60b-421e25db6dc3)
+**===========Notices Page===============**
+![imagen](https://github.com/user-attachments/assets/4f7f6740-3331-45ea-8471-3e1b5d92b965)
+
+**============Admin Page================**
+![Captura desde 2025-01-16 16-31-34](https://github.com/user-attachments/assets/c954267b-fbbb-40e3-9120-7a5374ca3801)
+![Captura desde 2025-01-16 16-32-02](https://github.com/user-attachments/assets/f2d9cdbc-de8f-4dab-933e-1dc958bfb386)
+
