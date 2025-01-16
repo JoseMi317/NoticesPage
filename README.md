@@ -33,6 +33,8 @@ You can start editing the website by modifying these 4 pages:
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+
+** **If everything is correct you will be able to see the screenshots of the differences** **
 ## ScreenShoots To Pages
 
 **==========The Landing Page============**
