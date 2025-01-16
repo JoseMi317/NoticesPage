@@ -64,7 +64,7 @@ export default function RegisterPage() {
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body" onSubmit={handleSubmit}>
+            <form className="card p-4 w-96px" onSubmit={handleSubmit}>
             <div className="card-body grid grid-cols-1 sm:grid-cols-2 gap-4 bg-base-100 w-full max-w-sm shrink-0 flex-col col-span-1">
                             {/*FirstName Box*/}
                             <div className="form-control">
