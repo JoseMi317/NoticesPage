@@ -25,6 +25,7 @@ You can start editing the website by modifying these 4 pages:
 2. register/page.txs
 3. login/page.txt
 4. notices/page.txt
+5. admin/page.txt
    
 **If you want to modify the Api, please search for the "ApiService"**
 
