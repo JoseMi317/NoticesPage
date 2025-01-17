@@ -1,4 +1,3 @@
-// ApiService.ts
 import axios from "axios";
 
 interface ApiData {
