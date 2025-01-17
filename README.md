@@ -2,21 +2,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
 
-```bash
----------------------------------------------
->First install all dependences
-    nmp install
-    npm i axios
-----------------------------------------------
->After That please install the daisyui for tailwind
-    npm i -D daisyui@latest
-----------------------------------------------
->Now Run the proyect
-    npm run dev
-----------------------------------------------
-```
+    ---------------------------------------------
+    >First install all dependences
+        nmp install
+        npm i axios
+    ----------------------------------------------
+    >After That please install the daisyui for tailwind
+        npm i -D daisyui@latest
+    ----------------------------------------------
+    >Now Run the proyect
+        npm run dev
+    ----------------------------------------------
+
 Now you need the backend for that, you need to download this repository.
 [GitHub](https://github.com/JoseMi317/Backend-for-news-page)
 
